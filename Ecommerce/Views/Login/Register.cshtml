@@ -1,0 +1,95 @@
+﻿@{
+    Layout = null;
+}
+@model User
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignUp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        body {
+            
+            background: url('@Url.Content("~/images/register-background.jpg")');
+            background-size: cover;
+        }
+
+        .content {
+            float: right;
+            color: black;
+            display: grid;
+            grid-template-rows: 20% 80%;
+        }
+
+        .clo {
+            color: white;
+            border-radius: 25px;
+            width: 100%;
+            background-color: #AFB3FF;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .con {
+            width: 50%;
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0;
+        }
+
+        input {
+            padding: 0.3rem;
+            border-radius: 15px;
+             width: 550px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content align-items-center">
+            <h2 class="mt-1">Please Fill out form to Register!</h2>
+            <form asp-action="Register" method="post">
+                <div class="con">
+                    <Label>Full Name:</Label>
+                    <input asp-for="name" type="text">
+                </div>
+                <div class="con">
+                    <Label>Email</Label>
+                    <input asp-for="email" type="email">
+                <div class="con">
+                    <Label>Password</Label>
+                    <input asp-for="password" type="password">
+                </div>
+                <div class="con">
+                    <Label>Location</Label>
+                    <input asp-for="location" type="text">
+                </div>
+                <div class="con">
+                    <Label>Mobile</Label>
+                    <input asp-for="mobile" type="text">
+                </div>
+                <button type="submit" class="my-4 btn clo">Register</Button>
+                <div class="conr text-center">
+                    <p>Already have acount ? <a href="">Login</a> </p>
+                </div>
+            </form> 
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
