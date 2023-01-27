@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -20,8 +21,12 @@ namespace Ecommerce.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
-		}
+			if(HttpContext.Session.GetInt32("userId")  == null)
+			{
+				return RedirectToAction("Index", "Login");
+			}
+            return View(new User() { name=HttpContext.Session.GetString("name") });
+        }
 
 		public IActionResult DashBoard()
 		{

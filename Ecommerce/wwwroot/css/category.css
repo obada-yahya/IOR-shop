@@ -1,0 +1,56 @@
+﻿img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.head img {
+    height: 35vh;
+}
+
+.carts {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart {
+    width: 350px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: black;
+    padding: 2rem;
+    margin: 10px;
+}
+
+    .cart img {
+        height: 280px;
+    }
+
+.say {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 1rem;
+}
+
+h2, h4 {
+    color: #AFB3FF;
+}
+
+.arr {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: #AFB3FF;
+    font-size: 30px;
+}

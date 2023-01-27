@@ -1,0 +1,42 @@
+﻿body {
+    background:url("../images/register-background.jpg");
+    background-size: cover;
+}
+
+.content {
+    float: right;
+    color: black;
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+.clo {
+    color: white;
+    border-radius: 25px;
+    width: 100%;
+    background-color: #AFB3FF;
+}
+
+h2 {
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.con {
+    width: 50%;
+}
+
+label {
+    display: block;
+    margin: 1rem 0;
+}
+
+input {
+    padding: 0.3rem;
+    border-radius: 15px;
+    width: 550px;
+}

@@ -9,52 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
+    <link rel="stylesheet" href="~/css/userLogin.css">
     <title>Login</title>
-    <style>
-        body {
-            /*background-image: url("https://images.unsplash.com/photo-1674585653590-3f5def559b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80");
-                    */
-            background: url('@Url.Content("~/images/login-background.jpg")');
-            background-size: cover;
-        }
-
-        .content {
-            color: black;
-            display: grid;
-            grid-template-rows: repeat(2,1fr);
-        }
-
-        .clo {
-            color: white;
-            border-radius: 25px;
-            width: 50%;
-            background-color: #AFB3FF;
-        }
-
-        h2 {
-            color: black;
-        }
-
-        a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .conr {
-            width: 50%;
-        }
-
-        label {
-            display: block;
-            margin: 1rem 0;
-        }
-
-        input {
-            border-radius: 15px;
-            width: 250px;
-        }
-    </style>
 </head>
 <body>
 
@@ -72,7 +28,7 @@
                 </div>
                 <button type="submit" class="my-4 btn clo">Login</button>
                 <div class="conr text-center">
-                    <p>Create New acount ? <a asp-controller="login" asp-action="register">Register</a> </p>
+                    <p>Create New acount ? <a asp-controller="Login" asp-action="Register">Register</a> </p>
                 </div>
             </form>
         </div>

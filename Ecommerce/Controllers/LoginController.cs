@@ -16,12 +16,15 @@ namespace Ecommerce.Controllers
 		}
 		public IActionResult Index()
 		{
-			if(HttpContext.Session.GetInt32("userId") == null)
-			{
-				return RedirectToAction("Index","Home");
-			}
 			return View();
 		}
+		public void userLogin(User user)
+		{
+            HttpContext.Session.SetInt32("userId", user.UserId);
+            HttpContext.Session.SetString("name", user.name);
+            if (user.cartId != null)
+                HttpContext.Session.SetInt32("cartId", (int)user.cartId);
+        }
         public IActionResult LoginUser()
         {
             return View("login");
@@ -34,11 +37,7 @@ namespace Ecommerce.Controllers
 			{
                 return View("login");
             }
-			HttpContext.Session.SetInt32("userId", CheckUser.First().UserId);
-			HttpContext.Session.SetString("name", CheckUser.First().name);
-			if(user.cartId != null)
-            HttpContext.Session.SetInt32("cartId", (int)CheckUser.First().cartId);
-
+			userLogin(CheckUser.First());
             return RedirectToAction("Index", "Home");
         }
         public IActionResult LoginAdmin()
@@ -54,7 +53,8 @@ namespace Ecommerce.Controllers
 		{
 			context.Users.Add(user); 
 			context.SaveChanges();
-			return View("Index","Home");	
+            userLogin(user);
+            return RedirectToAction("Index","Home");	
 		}
 
 	}

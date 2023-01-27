@@ -1,0 +1,40 @@
+﻿body {
+    background: url('../images/login-background.jpg');
+    background-size: cover;
+}
+
+.content {
+    color: black;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+}
+
+.clo {
+    color: white;
+    border-radius: 25px;
+    width: 50%;
+    background-color: #AFB3FF;
+}
+
+h2 {
+    color: black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.conr {
+    width: 50%;
+}
+
+label {
+    display: block;
+    margin: 1rem 0;
+}
+
+input {
+    border-radius: 15px;
+    width: 250px;
+}
