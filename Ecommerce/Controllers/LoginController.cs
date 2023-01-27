@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,10 @@ namespace Ecommerce.Controllers
 		}
 		public IActionResult Index()
 		{
+			if(HttpContext.Session.GetInt32("userId") == null)
+			{
+				return RedirectToAction("Index","Home");
+			}
 			return View();
 		}
         public IActionResult LoginUser()
@@ -29,6 +34,11 @@ namespace Ecommerce.Controllers
 			{
                 return View("login");
             }
+			HttpContext.Session.SetInt32("userId", CheckUser.First().UserId);
+			HttpContext.Session.SetString("name", CheckUser.First().name);
+			if(user.cartId != null)
+            HttpContext.Session.SetInt32("cartId", (int)CheckUser.First().cartId);
+
             return RedirectToAction("Index", "Home");
         }
         public IActionResult LoginAdmin()

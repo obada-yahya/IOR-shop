@@ -26,15 +26,17 @@ namespace Ecommerce
 		{
 			services.AddDbContext<EcommerceContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("EcommerceConnection")));
-
-			services.AddControllersWithViews();
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddControllersWithViews();
 
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-			if (env.IsDevelopment())
+            app.UseSession();
+            if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
 			}

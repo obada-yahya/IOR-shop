@@ -25,13 +25,12 @@ namespace Ecommerce.Migrations
                 name: "Carts",
                 columns: table => new
                 {
-                    cartId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    cartId = table.Column<int>(nullable: false),
                     productId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Carts", x => x.cartId);
+                    table.PrimaryKey("PK_Carts", x => new { x.cartId, x.productId });
                 });
 
             migrationBuilder.CreateTable(
@@ -73,7 +72,8 @@ namespace Ecommerce.Migrations
                     email = table.Column<string>(nullable: true),
                     password = table.Column<string>(nullable: true),
                     location = table.Column<string>(nullable: true),
-                    mobile = table.Column<string>(nullable: true)
+                    mobile = table.Column<string>(nullable: true),
+                    cartId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

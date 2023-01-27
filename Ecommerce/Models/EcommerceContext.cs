@@ -9,6 +9,11 @@ namespace Ecommerce.Models
 		{
 
 		}
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Cart>().HasKey(x => new { x.cartId, x.productId });
+
+		}
 		public DbSet<User> Users{ get; set; }
 		public DbSet<Admin> Admins { get; set; }
 
