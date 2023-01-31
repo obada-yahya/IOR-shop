@@ -1,0 +1,76 @@
+﻿.content {
+    color: #AFB3FF;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.top {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;
+}
+
+.btn a,.btn label {
+    width: 105px;
+    display: inline-block;
+    font-size: 13px;
+}
+.btn:active{
+
+}
+
+.cancel {
+    border: 2px solid #AFB3FF;
+    border-radius: 5px;
+    padding: 18px;
+    font-weight: bold;
+    color: #AFB3FF;
+    text-decoration: none;
+    transition: all 400ms ease;
+}
+
+    .cancel:hover {
+        background-color: #AFB3FF;
+        color: white;
+    }
+
+.save {
+    border: 2px solid #AFB3FF;
+    border-radius: 5px;
+    padding: 18px;
+    font-weight: bold;
+    background-color: #AFB3FF;
+    color: white;
+    text-decoration: none;
+    transition: all 400ms ease;
+}
+
+    .save:hover {
+        background-color: white;
+        color: #AFB3FF;
+    }
+
+.form {
+    margin-top: 25px;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    align-items: center;
+}
+
+.name {
+    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+input {
+    border: 2px solid #AFB3FF;
+    padding: 5px;
+    width: 100%;
+}
+
+hr {
+    margin-top: 2rem;
+    border-top: 3px solid;
+    opacity: 1;
+}

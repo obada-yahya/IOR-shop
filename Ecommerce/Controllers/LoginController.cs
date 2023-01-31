@@ -57,5 +57,34 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Index","Home");	
 		}
 
-	}
+        public IActionResult BasicInfo()
+		{
+            if (HttpContext.Session.GetInt32("userId") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+			int userId = (int)HttpContext.Session.GetInt32("userId");
+			User user = context.Users.Find(userId);
+            return View("BasicInfo",user);
+		}
+		[HttpPost]
+		public IActionResult BasicInfo(User userUpdate)
+		{
+			// update the info and return to dashboard 
+			// or clear the session and make them login in the new info
+
+			User user = context.Users.Find(userUpdate.UserId);
+			
+			user.name = userUpdate.name;
+            user.mobile = userUpdate.mobile;
+            user.location = userUpdate.location;
+            user.email = userUpdate.email;
+
+			context.Users.Update(user);
+			context.SaveChanges();
+            HttpContext.Session.SetString("name", user.name);
+            return RedirectToAction("Index", "Home");
+        }
+    }
 }
+
