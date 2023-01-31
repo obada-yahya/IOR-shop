@@ -1,0 +1,134 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+}
+
+.main-container {
+    /*width: 80%;*/
+    margin: 2rem auto;
+    margin-bottom: 100px
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.main-container a {
+    color: var(--color-primary);
+    transition: all 400ms ease;
+}
+
+ img {
+    height: 70%;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.main-container .header {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    justify-content: space-between;
+    margin: 1rem 1rem;
+    padding: 1.5rem;
+}
+
+    .header h1 {
+        position: relative;
+        font-size: 5rem;
+    }
+
+        .header h1::before {
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        .header h1:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .header h1::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            inset: 0 0 0 0;
+            background: #AFB3FF44;
+            z-index: -1;
+            transition: transform .6s ease;
+        }
+
+.team {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2.5rem;
+}
+
+    .team .member {
+        background-color: #AFB3FF;
+        border: 2px solid black;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-rows: repeat(2,1fr);
+        padding: 1rem 1rem;
+        border-radius: 10px;
+        transition: all 400ms ease;
+        animation: scroll-up 2s;
+    }
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(300px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.team .member:hover {
+    background-color: #AFB3FF55;
+    cursor: pointer;
+}
+#member{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+}
+.team .member .img {
+    margin-top: 1rem;
+}
+
+    .team .member .img img {
+        height: 270px;
+        width: 270px;
+        border-radius: 50%;
+        border: 0.6px solid rgba(0, 0, 0, 0.4);
+    }
+
+.team .member .content {
+    text-align: center;
+}
