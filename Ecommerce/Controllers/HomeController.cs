@@ -12,11 +12,10 @@ namespace Ecommerce.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
-
-		public HomeController(ILogger<HomeController> logger)
+        private readonly EcommerceContext context;
+        public HomeController(EcommerceContext con)
 		{
-			_logger = logger;
+			context = con;
 		}
 
 		public IActionResult Index()
@@ -28,8 +27,12 @@ namespace Ecommerce.Controllers
             return View(new User() { name=HttpContext.Session.GetString("name") });
         }
 
-		public IActionResult DashBoard()
+		public IActionResult DashBoard(int id)
 		{
+			Categories category = context.Categories.Find(id);
+			List<Product> products = context.Products.Where(e => e.categoryId == id).ToList();
+			ViewBag.products = products;
+			ViewBag.category = category;
 			return View();
 		}
 		public IActionResult AboutUs() { return View(); }
