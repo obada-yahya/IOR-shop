@@ -1,0 +1,105 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+    background-color: #AFB3FF;
+    padding: 20px;
+    font-size: 25px;
+    color: #FFFFFF;
+    font-weight: 900;
+}
+
+    .nav ul {
+        display: flex;
+        justify-content: space-between;
+        width: 2040px;
+    }
+
+        .nav ul li {
+            list-style: none;
+        }
+
+.mainPage {
+    /*display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: space-around;
+    align-items: center;*/
+}
+
+.paymentMethods {
+    display: flex;
+    justify-content: space-around;
+}
+
+.leftPart {
+    padding: 10px 50px 100px 100px;
+    font-weight: 900;
+}
+
+.divItems {
+    padding: 10px;
+}
+
+.items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.item img {
+    border-radius: 30px;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    border: 1px solid #AFB3FF;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.rightPart {
+    border-radius: 15px;
+    padding: 13px;
+    background-color: #AFB3FF;
+    color: #FFFFFF;
+}
+
+input {
+    background-color: black;
+    opacity: 0.33;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.hi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.buttonn {
+    background-color: #000000;
+    color: #FFFFFF;
+    opacity: 0.5;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px 0;
+}

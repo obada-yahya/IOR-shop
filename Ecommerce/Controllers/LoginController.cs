@@ -44,6 +44,11 @@ namespace Ecommerce.Controllers
 		{
 			return View("login");
 		}
+		public IActionResult LogOut()
+		{
+			HttpContext.Session.Clear();
+			return RedirectToAction("Index", "Home");
+		}
 		public IActionResult Register()
 		{
 			return View();
