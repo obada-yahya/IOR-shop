@@ -1,0 +1,38 @@
+﻿@model User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/userLogin.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content mt-5 align-items-center">
+            <h2>Welcome Back!</h2>
+            <form asp-action="LoginAdmin" method="post">
+                <div class="con">
+                    <Label>Email</Label>
+                    <input asp-for="email" type="email">
+                </div>
+                <div class="con">
+                    <Label>Password</Label>
+                    <input asp-for="password" type="password">
+                </div>
+                <button type="submit" class="my-4 btn clo">Login</button>
+                
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

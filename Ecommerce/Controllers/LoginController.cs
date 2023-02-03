@@ -25,6 +25,11 @@ namespace Ecommerce.Controllers
             if (user.cartId != null)
                 HttpContext.Session.SetInt32("cartId", (int)user.cartId);
         }
+        public void adminLogin(Admin admin)
+        {
+            HttpContext.Session.SetInt32("adminId", admin.AdminId);
+            HttpContext.Session.SetString("adminName", admin.name);
+        }
         public IActionResult LoginUser()
         {
             return View("login");
@@ -42,9 +47,20 @@ namespace Ecommerce.Controllers
         }
         public IActionResult LoginAdmin()
 		{
-			return View("login");
+			return View("LoginAdmin");
 		}
-		public IActionResult LogOut()
+		[HttpPost]
+		public IActionResult LoginAdmin(Admin admin)
+        {
+            List<Admin> CheckAdmin = context.Admins.Where(e => e.email.Equals(admin.email) && e.password.Equals(admin.password)).ToList();
+            if (CheckAdmin.Count() == 0)
+            {
+                return View("LoginAdmin");
+            }
+            adminLogin(CheckAdmin.First());
+			return RedirectToAction("AdminDashBoard", "Home");
+        }
+        public IActionResult LogOut()
 		{
 			HttpContext.Session.Clear();
 			return RedirectToAction("Index", "Home");

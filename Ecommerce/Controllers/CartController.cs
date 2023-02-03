@@ -40,5 +40,22 @@ namespace Ecommerce.Controllers
             ViewBag.user = user;
             return View();
         }
+        public IActionResult Delete(int productId)
+        {
+            if(HttpContext.Session.GetInt32("cartId") == null)
+            {
+                return RedirectToAction("index","Cart");
+            }
+            int cartId = (int)HttpContext.Session.GetInt32("cartId");
+			List<Cart> cart = context.Carts.Where(e => e.productId == productId && e.cartId == cartId).ToList();
+            if(cart == null)
+            {
+				return RedirectToAction("index", "Cart");
+			}
+            context.Carts.Remove(cart.First());
+            context.SaveChanges();
+			return RedirectToAction("index", "Cart");
+
+		}
     }
 }

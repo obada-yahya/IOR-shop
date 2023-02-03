@@ -26,7 +26,23 @@ namespace Ecommerce.Controllers
 			}
             return View(new User() { name=HttpContext.Session.GetString("name") });
         }
-
+		public IActionResult AdminDashBoard()
+		{
+            if (HttpContext.Session.GetInt32("adminId") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+			List<User> users = context.Users.ToList();
+			ViewBag.users = users;
+			return View();
+        }
+		[HttpPost]
+		public IActionResult AdminDashBoard(search search)
+		{
+			List<User> users = context.Users.Where(e=> e.name.Contains(search.searchString)).ToList();
+			ViewBag.users = users;
+			return View();
+		}
 		public IActionResult DashBoard(int id)
 		{
 			Categories category = context.Categories.Find(id);

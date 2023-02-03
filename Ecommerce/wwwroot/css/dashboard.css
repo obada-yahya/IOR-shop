@@ -5,10 +5,13 @@
     justify-content: center;
     align-items: center;
 }
-
+.main-dashboard {
+    margin-bottom: 50px;
+}
 .carts {
     margin-top: 3rem;
     display: grid;
+    grid-row-gap:40px;
     grid-template-columns: repeat(5,1fr);
     justify-content: center;
     align-items: center;
