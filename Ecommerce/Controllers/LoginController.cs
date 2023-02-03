@@ -22,8 +22,8 @@ namespace Ecommerce.Controllers
 		{
             HttpContext.Session.SetInt32("userId", user.UserId);
             HttpContext.Session.SetString("name", user.name);
-            if (user.cartId != null)
-                HttpContext.Session.SetInt32("cartId", (int)user.cartId);
+            /*if (user.cartId != null)
+                HttpContext.Session.SetInt32("cartId", (int)user.cartId);*/
         }
         public void adminLogin(Admin admin)
         {

@@ -18,7 +18,8 @@
                     <img src="~/productsImages/@product.productImg" alt="">
                     <div class="details">
                         <h4>@product.price Nis</h4>
-                        <button class="btn clo"><span>+</span></button>
+                        <a class="btn clo" asp-controller="Cart" asp-action="addProduct" asp-route-Id=@product.productId ><span>+</span></a>
+                        <!--<button class="btn clo"><span>+</span></button>-->
                     </div>
                 </div>
             }

@@ -19,15 +19,15 @@
                 <h4>Shopping Cart</h4>
                 <h5 class="mb-5">You have @ViewBag.products.Count Items in your cart</h5>
                 <div class="items">
-                    @for(int i = 0; i < ViewBag.products.Count; i++)
+                    @foreach(Product product in ViewBag.products)
                     {
                         <div class="item">
-                            <img src="~/productsImages/@ViewBag.products[i].productImg" width="80px">
-                            <h4>@ViewBag.products[i].productName</h4>
-                            <h6>₪@ViewBag.products[i].price</h6>
-                            <a class="delete-btn" asp-controller="Cart" asp-action="Delete" asp-route-productId=@ViewBag.products[i].productId >DELETE</a>
+                            <img src="~/productsImages/@product.productImg" width="80px">
+                            <h4>@product.productName</h4>
+                            <h6>₪@product.price</h6>
+                            <a class="delete-btn" asp-controller="Cart" asp-action="Delete" asp-route-productId=@product.productId >DELETE</a>
                         </div>
-                    }
+                    } 
                 </div>
             </div>
 

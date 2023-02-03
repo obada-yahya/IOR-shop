@@ -20,35 +20,51 @@ namespace Ecommerce.Controllers
                 return RedirectToAction("Index", "Login");
             }
             int userId = (int)HttpContext.Session.GetInt32("userId");
-            User user = context.Users.Find(userId);
-            if(user.cartId == null)
+            int cartId = userId;
+            User user = context.Users.Find(userId); 
+            List<Cart> carts = context.Carts.Where(e=> e.cartId == cartId).ToList();
+            ViewBag.user = user;
+            if (carts.Count() == 0)
             {
                 ViewBag.products = new List<Product>();
+                return View();
             }
-            else
-            { 
-                List<Cart> carts = context.Carts.Where(e=> e.cartId == user.cartId).ToList();
-                List<Product> products = new List<Product>(); 
-                foreach(Cart cart in carts)
-                {
-                    Product p = context.Products.Find(cart.productId);
-                    products.Add(p);
-                }
-                ViewBag.products = products;
+            List<Product> products = new List<Product>();
+            foreach(Cart cart in carts)
+            {
+                Product p = context.Products.Find(cart.productId);
+                products.Add(p);
             }
-            
-            ViewBag.user = user;
+            ViewBag.products = products;
             return View();
+        }
+        public IActionResult addProduct(int Id)
+        {
+            if (HttpContext.Session.GetInt32("userId") == null)
+            {
+                return RedirectToAction("index", "Home");
+            }
+            int userId = (int)HttpContext.Session.GetInt32("userId");
+            Cart cart = new Cart() { cartId = userId, productId = Id };
+            List<Cart> searchCart = context.Carts.Where(e=> e.cartId == cart.cartId && e.productId == cart.productId).ToList();
+            if(searchCart.Count() > 0)
+            {
+                return RedirectToAction("index", "Cart");
+            }
+
+            context.Carts.Add(cart);
+            context.SaveChanges();
+            return RedirectToAction("index","Cart");
         }
         public IActionResult Delete(int productId)
         {
-            if(HttpContext.Session.GetInt32("cartId") == null)
+            if(HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("index","Cart");
             }
-            int cartId = (int)HttpContext.Session.GetInt32("cartId");
+            int cartId = (int)HttpContext.Session.GetInt32("userId");
 			List<Cart> cart = context.Carts.Where(e => e.productId == productId && e.cartId == cartId).ToList();
-            if(cart == null)
+            if(cart.Count() == 0)
             {
 				return RedirectToAction("index", "Cart");
 			}
